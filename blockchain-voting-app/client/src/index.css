@@ -1,0 +1,140 @@
+/* src/index.css */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark theme (default) */
+body.theme-dark {
+  background:
+    radial-gradient(circle at top, #1f2937 0, transparent 55%),
+    radial-gradient(circle at bottom, #0f172a 0, #020617 55%);
+  color: #e5e7eb;
+}
+
+/* Light theme */
+body.theme-light {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+  padding: 6rem 0;
+  margin-bottom: 3rem;
+}
+
+.hero-section h1 {
+  font-weight: 700;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+}
+
+/* Glassy cards on top of dark background */
+body.theme-dark .card {
+  border: none;
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(18px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+body.theme-dark .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+  background: rgba(15, 23, 42, 0.98);
+}
+
+body.theme-dark .btn-primary {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  border: none;
+  border-radius: 999px;
+  padding-inline: 1.75rem;
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.35);
+}
+
+body.theme-dark .btn-primary:hover,
+body.theme-dark .btn-primary:focus {
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  box-shadow: 0 16px 40px rgba(79, 70, 229, 0.5);
+}
+
+body.theme-dark .btn-outline-primary {
+  color: #a855f7;
+  border-radius: 999px;
+  border-color: rgba(148, 163, 184, 0.7);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(14px);
+}
+
+body.theme-dark .btn-outline-primary:hover,
+body.theme-dark .btn-outline-primary:focus {
+  color: #ffffff;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  border-color: transparent;
+}
+
+/* Light theme variants */
+body.theme-light .card {
+  border-radius: 1rem;
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 12px 28px rgba(148, 163, 184, 0.55);
+}
+
+body.theme-light .btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  border: none;
+  border-radius: 999px;
+  padding-inline: 1.75rem;
+  box-shadow: 0 10px 24px rgba(236, 72, 153, 0.35);
+}
+
+body.theme-light .btn-primary:hover,
+body.theme-light .btn-primary:focus {
+  background: linear-gradient(135deg, #4338ca, #db2777);
+}
+
+body.theme-light .btn-outline-primary {
+  color: #4f46e5;
+  border-radius: 999px;
+  border-color: rgba(148, 163, 184, 0.8);
+  background: #ffffff;
+}
+
+body.theme-light .btn-outline-primary:hover,
+body.theme-light .btn-outline-primary:focus {
+  color: #ffffff;
+  background: linear-gradient(135deg, #4f46e5, #ec4899);
+  border-color: transparent;
+}
+
+/* Make hero and layout more compact on small screens */
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 3.5rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-section .display-4 {
+    font-size: 2.25rem;
+  }
+
+  .hero-section .lead {
+    font-size: 1.05rem;
+  }
+}
