@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Card, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { toast } from 'react-toastify';
+import api from '../utils/api';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -32,7 +32,7 @@ const LoginPage = () => {
         },
       };
 
-      const { data } = await axios.post(
+      const { data } = await api.post(
         '/api/auth/login',
         { email, password },
         config

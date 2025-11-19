@@ -1,7 +1,7 @@
 // src/pages/ResultsPage.js
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, ProgressBar, Alert, Spinner } from 'react-bootstrap';
-import axios from 'axios';
+import api from '../utils/api';
 
 const ResultsPage = () => {
   const [stats, setStats] = useState(null);
@@ -11,7 +11,7 @@ const ResultsPage = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const { data } = await axios.get('/api/votes/stats');
+        const { data } = await api.get('/api/votes/stats');
         setStats(data);
         setLoading(false);
       } catch (err) {

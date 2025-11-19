@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button, Alert, Spinner } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
 import { toast } from 'react-toastify';
+import api from '../utils/api';
 
 const VotePage = () => {
   const [candidates, setCandidates] = useState([]);
@@ -29,8 +29,8 @@ const VotePage = () => {
     const loadData = async () => {
       try {
         const [userRes, candRes] = await Promise.all([
-          axios.get('/api/auth/me', { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get('/api/candidates'),
+          api.get('/api/auth/me', { headers: { Authorization: `Bearer ${token}` } }),
+          api.get('/api/candidates'),
         ]);
         setUser(userRes.data);
         setCandidates(candRes.data);
@@ -62,7 +62,7 @@ const VotePage = () => {
 
     try {
       setVoting(true);
-      const { data } = await axios.post(
+      const { data } = await api.post(
         '/api/votes',
         { candidateId },
         { headers: { Authorization: `Bearer ${token}` } }

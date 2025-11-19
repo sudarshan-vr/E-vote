@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button, Alert, ListGroup, Badge } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../utils/api';
 
 const DashboardPage = () => {
   const [user, setUser] = useState(null);
@@ -25,7 +25,7 @@ const DashboardPage = () => {
 
     const fetchUser = async () => {
       try {
-        const { data } = await axios.get('/api/auth/me', {
+        const { data } = await api.get('/api/auth/me', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(data);
