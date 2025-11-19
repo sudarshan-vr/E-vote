@@ -9,8 +9,17 @@ const voteRoutes = require('./routes/votes');
 const app = express();
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+const cors = require('cors');
+
+// Enable CORS for all routes
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://www.siripowersystems.com',
+    'https://siripowersystems.com'
+  ],
+  credentials: true
+}));app.use(express.json());
 
 // Database connection
 sequelize
